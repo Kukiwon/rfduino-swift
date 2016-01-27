@@ -7,6 +7,5 @@ end
 
 target 'RFDuino_Tests', :exclusive => true do
   pod 'RFDuino', :path => '../'
-
   
 end

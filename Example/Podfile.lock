@@ -1,0 +1,14 @@
+PODS:
+  - RFDuino (0.1.0)
+
+DEPENDENCIES:
+  - RFDuino (from `../`)
+
+EXTERNAL SOURCES:
+  RFDuino:
+    :path: ../
+
+SPEC CHECKSUMS:
+  RFDuino: 83a58b25852a355979b237a30f232dd134c879af
+
+COCOAPODS: 0.39.0

@@ -12,7 +12,28 @@ import CoreBluetooth
 public protocol RFDuinoBTManagerDelegate {
     func rfDuinoManagerDidDiscoverRFDuino(manager: RFDuinoBTManager, rfDuino: RFDuino)
     func rfDuinoManagerDidConnectRFDuino(manager: RFDuinoBTManager, rfDuino: RFDuino)
-    func rfDuinoManagerDidDisconnectRFDuino(manager: RFDuinoBTManager, rfDuino: RFDuino)
+}
+
+internal enum RFDuinoUUID {
+    case Discover
+    case Disconnect
+    case Receive
+    case Send
+    
+    var id: CBUUID {
+        get {
+            switch self {
+            case .Discover:
+                return CBUUID(string: "2220")
+            case .Receive:
+                return CBUUID(string: "2221")
+            case .Send:
+                return CBUUID(string: "2222")
+            case .Disconnect:
+                return CBUUID(string: "2223")
+            }
+        }
+    }
 }
 
 public class RFDuinoBTManager : NSObject {
@@ -21,15 +42,14 @@ public class RFDuinoBTManager : NSObject {
     public static let sharedInstance = RFDuinoBTManager()
     public var delegate: RFDuinoBTManagerDelegate?
     
-    
     /* Private variables */
     lazy private var centralManager:CBCentralManager = {
         let manager = CBCentralManager(delegate: sharedInstance, queue: dispatch_get_main_queue())
         return manager
     }()
-    private let serviceUUID: CBUUID = CBUUID(string: "2220")
     private var reScanTimer: NSTimer?
     private static var reScanInterval = 3.0
+    internal static var logging = false
     
     private var _discoveredRFDuinos: [RFDuino] = []
     public var discoveredRFDuinos: [RFDuino] = [] {
@@ -45,34 +65,43 @@ public class RFDuinoBTManager : NSObject {
         "initialized RFDuinoBTRManager".log()
     }
 }
-
+    
 /* Public methods */
-extension RFDuinoBTManager {
-    public func startScanningForRFDuinos() {
-        "Started scanning for peripherals".log()
-        centralManager.scanForPeripheralsWithServices([serviceUUID], options: [CBCentralManagerScanOptionAllowDuplicatesKey: false])
+public extension RFDuinoBTManager {
+    
+    func setLoggingEnabled(enabled: Bool) {
+        RFDuinoBTManager.logging = enabled
     }
     
-    public func stopScanningForRFDuinos() {
+    func startScanningForRFDuinos() {
+        "Started scanning for peripherals".log()
+        centralManager.scanForPeripheralsWithServices([RFDuinoUUID.Discover.id], options: [CBCentralManagerScanOptionAllowDuplicatesKey: false])
+    }
+    
+    func stopScanningForRFDuinos() {
         discoveredRFDuinos = []
         "Stopped scanning for peripherals".log()
         centralManager.stopScan()
     }
     
-    public func connectRFDuino(rfDuino: RFDuino) {
+    func connectRFDuino(rfDuino: RFDuino) {
         "Connecting to RFDuino".log()
         centralManager.connectPeripheral(rfDuino.peripheral, options: nil)
     }
     
-    public func disconnectRFDuino(rfDuino: RFDuino) {
+    func disconnectRFDuino(rfDuino: RFDuino) {
         "Disconnecting from RFDuino".log()
-        centralManager.cancelPeripheralConnection(rfDuino.peripheral)
+        rfDuino.sendDisconnectCommand { () -> () in
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.centralManager.cancelPeripheralConnection(rfDuino.peripheral)
+            })
+        }
     }
 }
 
 /* Internal methods */
 extension RFDuinoBTManager {
-    internal func reScan() {
+    func reScan() {
         reScanTimer?.invalidate()
         reScanTimer = nil
         reScanTimer = NSTimer.scheduledTimerWithTimeInterval(RFDuinoBTManager.reScanInterval, target: self, selector: Selector("startScanningForRFDuinos"), userInfo: nil, repeats: true)
@@ -115,8 +144,7 @@ extension RFDuinoBTManager : CBCentralManagerDelegate {
     public func centralManager(central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: NSError?) {
         "Did disconnect peripheral".log()
         if let rfDuino = discoveredRFDuinos.findRFDuino(peripheral) {
-            rfDuino.isConnected = false
-            delegate?.rfDuinoManagerDidDisconnectRFDuino(self, rfDuino: rfDuino)
+            rfDuino.didDisconnect()
         }
     }
     
@@ -124,6 +152,8 @@ extension RFDuinoBTManager : CBCentralManagerDelegate {
     public func centralManager(central: CBCentralManager, didDiscoverPeripheral peripheral: CBPeripheral, advertisementData: [String : AnyObject], RSSI: NSNumber) {
         "Did discover peripheral with name: \(peripheral.name ?? "")".log()
         discoveredRFDuinos.insertIfNotContained(RFDuino(peripheral: peripheral))
+        let rfDuino = discoveredRFDuinos.findRFDuino(peripheral)
+        rfDuino?.RSSI = RSSI
         reScan()
     }
     
@@ -140,6 +170,8 @@ extension RFDuinoBTManager : CBCentralManagerDelegate {
 
 extension String {
     func log() {
-        print(" 📲 " + self)
+        if RFDuinoBTManager.logging {
+            print(" 📲 " + self)
+        }
     }
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import RFDuino
+import CoreBluetooth
 
 class DiscoveryTableViewController: UITableViewController {
     
@@ -47,10 +48,10 @@ class DiscoveryTableViewController: UITableViewController {
         
         if rfDuino.isTimedOut {
             cell?.textLabel?.textColor = UIColor.grayColor()
-            cell?.textLabel?.text = rfDuino.name! + " (timed out)"
+            cell?.textLabel?.text = rfDuino.name + " (timed out)"
         } else {
             cell?.textLabel?.textColor = UIColor.blackColor()
-            cell?.textLabel?.text = rfDuino.name
+            cell?.textLabel?.text = rfDuino.name + (rfDuino.RSSI != nil ? " \(rfDuino.RSSI!)" : "")
         }
         
         return cell!
@@ -93,5 +94,21 @@ extension DiscoveryTableViewController: RFDuinoDelegate {
     
     func rfDuinoDidDiscover(rfDuino: RFDuino) {
         tableView.reloadData()
+    }
+    
+    func rfDuinoDidSendData(rfDuino: RFDuino, forCharacteristic: CBCharacteristic, error: NSError?) {
+        
+    }
+    
+    func rfDuinoDidDiscoverServices(rfDuino: RFDuino) {
+        
+    }
+    
+    func rfDuinoDidDiscoverCharacteristics(rfDuino: RFDuino) {
+        
+    }
+    
+    func rfDuinoDidDisconnect(rfDuino: RFDuino) {
+        
     }
 }

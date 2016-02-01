@@ -54,7 +54,7 @@ public class RFDuinoBTManager : NSObject {
     private var _discoveredRFDuinos: [RFDuino] = []
     public var discoveredRFDuinos: [RFDuino] = [] {
         didSet {
-            if oldValue.count != discoveredRFDuinos.count {
+            if oldValue.count < discoveredRFDuinos.count {
                 delegate?.rfDuinoManagerDidDiscoverRFDuino(self, rfDuino: discoveredRFDuinos.last!)
             }
         }

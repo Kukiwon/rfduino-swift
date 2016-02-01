@@ -9,7 +9,7 @@
 import Foundation
 import CoreBluetooth
 
-public protocol RFDuinoBTManagerDelegate {
+@objc public protocol RFDuinoBTManagerDelegate {
     func rfDuinoManagerDidDiscoverRFDuino(manager: RFDuinoBTManager, rfDuino: RFDuino)
     func rfDuinoManagerDidConnectRFDuino(manager: RFDuinoBTManager, rfDuino: RFDuino)
 }

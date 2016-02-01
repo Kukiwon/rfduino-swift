@@ -9,7 +9,7 @@
 import Foundation
 import CoreBluetooth
 
-public protocol RFDuinoDelegate {
+@objc public protocol RFDuinoDelegate {
     func rfDuinoDidTimeout(rfDuino: RFDuino)
     func rfDuinoDidDisconnect(rfDuino: RFDuino)
     func rfDuinoDidDiscover(rfDuino: RFDuino)

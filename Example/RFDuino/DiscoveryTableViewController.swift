@@ -77,14 +77,6 @@ extension DiscoveryTableViewController: RFDuinoBTManagerDelegate {
         rfDuino.delegate = self
         tableView.reloadData()
     }
-    
-    func rfDuinoManagerDidDisconnectRFDuino(manager: RFDuinoBTManager, rfDuino: RFDuino) {
-        // do nothing
-    }
-    
-    func rfDuinoManagerDidConnectRFDuino(manager: RFDuinoBTManager, rfDuino: RFDuino) {
-        // do nothing
-    }
 }
 
 extension DiscoveryTableViewController: RFDuinoDelegate {
@@ -94,24 +86,5 @@ extension DiscoveryTableViewController: RFDuinoDelegate {
     
     func rfDuinoDidDiscover(rfDuino: RFDuino) {
         tableView.reloadData()
-    }
-    
-    func rfDuinoDidSendData(rfDuino: RFDuino, forCharacteristic: CBCharacteristic, error: NSError?) {
-        
-    }
-    
-    func rfDuinoDidDiscoverServices(rfDuino: RFDuino) {
-        
-    }
-    
-    func rfDuinoDidDiscoverCharacteristics(rfDuino: RFDuino) {
-        
-    }
-    
-    func rfDuinoDidDisconnect(rfDuino: RFDuino) {
-        
-    }
-    func rfDuinoDidReceiveData(rfDuino: RFDuino, data: NSData?) {
-        
     }
 }

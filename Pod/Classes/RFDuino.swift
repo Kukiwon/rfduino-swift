@@ -10,12 +10,12 @@ import Foundation
 import CoreBluetooth
 
 @objc public protocol RFDuinoDelegate {
-    func rfDuinoDidTimeout(rfDuino: RFDuino)
-    func rfDuinoDidDisconnect(rfDuino: RFDuino)
-    func rfDuinoDidDiscover(rfDuino: RFDuino)
-    func rfDuinoDidDiscoverServices(rfDuino: RFDuino)
-    func rfDuinoDidDiscoverCharacteristics(rfDuino: RFDuino)
-    func rfDuinoDidSendData(rfDuino: RFDuino, forCharacteristic: CBCharacteristic, error: NSError?)
+    optional func rfDuinoDidTimeout(rfDuino: RFDuino)
+    optional func rfDuinoDidDisconnect(rfDuino: RFDuino)
+    optional func rfDuinoDidDiscover(rfDuino: RFDuino)
+    optional func rfDuinoDidDiscoverServices(rfDuino: RFDuino)
+    optional func rfDuinoDidDiscoverCharacteristics(rfDuino: RFDuino)
+    optional func rfDuinoDidSendData(rfDuino: RFDuino, forCharacteristic: CBCharacteristic, error: NSError?)
     optional func rfDuinoDidReceiveData(rfDuino: RFDuino, data: NSData?)
 }
 
@@ -44,7 +44,7 @@ public class RFDuino: NSObject {
 internal extension RFDuino {
     func confirmAndTimeout() {
         isTimedOut = false
-        delegate?.rfDuinoDidDiscover(self)
+        delegate?.rfDuinoDidDiscover?(self)
         
         timeoutTimer?.invalidate()
         timeoutTimer = nil
@@ -54,7 +54,7 @@ internal extension RFDuino {
     func didTimeout() {
         isTimedOut = true
         isConnected = false
-        delegate?.rfDuinoDidTimeout(self)
+        delegate?.rfDuinoDidTimeout?(self)
     }
     
     func didConnect() {
@@ -68,7 +68,7 @@ internal extension RFDuino {
     func didDisconnect() {
         isConnected = false
         confirmAndTimeout()
-        delegate?.rfDuinoDidDisconnect(self)
+        delegate?.rfDuinoDidDisconnect?(self)
     }
     
     func findCharacteristic(characteristicUUID characteristicUUID: RFDuinoUUID, forServiceWithUUID serviceUUID: RFDuinoUUID) -> CBCharacteristic? {
@@ -128,7 +128,7 @@ extension RFDuino: CBPeripheralDelegate {
                 doneBlock()
             }
         } else {
-            delegate?.rfDuinoDidSendData(self, forCharacteristic: self.findCharacteristic(characteristicUUID: RFDuinoUUID.Send, forServiceWithUUID: RFDuinoUUID.Discover)!, error: error)
+            delegate?.rfDuinoDidSendData?(self, forCharacteristic: self.findCharacteristic(characteristicUUID: RFDuinoUUID.Send, forServiceWithUUID: RFDuinoUUID.Discover)!, error: error)
         }
     }
     
@@ -141,7 +141,7 @@ extension RFDuino: CBPeripheralDelegate {
                 }
             }
         }
-        delegate?.rfDuinoDidDiscoverServices(self)
+        delegate?.rfDuinoDidDiscoverServices?(self)
     }
     
     public func peripheral(peripheral: CBPeripheral, didDiscoverCharacteristicsForService service: CBService, error: NSError?) {
@@ -155,7 +155,7 @@ extension RFDuino: CBPeripheralDelegate {
         }
         
         "Did discover characteristics for service".log()
-        delegate?.rfDuinoDidDiscoverCharacteristics(self)
+        delegate?.rfDuinoDidDiscoverCharacteristics?(self)
     }
     
     public func peripheral(peripheral: CBPeripheral, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {

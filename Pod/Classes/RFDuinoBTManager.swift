@@ -10,8 +10,8 @@ import Foundation
 import CoreBluetooth
 
 @objc public protocol RFDuinoBTManagerDelegate {
-    func rfDuinoManagerDidDiscoverRFDuino(manager: RFDuinoBTManager, rfDuino: RFDuino)
-    func rfDuinoManagerDidConnectRFDuino(manager: RFDuinoBTManager, rfDuino: RFDuino)
+    optional func rfDuinoManagerDidDiscoverRFDuino(manager: RFDuinoBTManager, rfDuino: RFDuino)
+    optional func rfDuinoManagerDidConnectRFDuino(manager: RFDuinoBTManager, rfDuino: RFDuino)
 }
 
 internal enum RFDuinoUUID {
@@ -55,7 +55,7 @@ public class RFDuinoBTManager : NSObject {
     public var discoveredRFDuinos: [RFDuino] = [] {
         didSet {
             if oldValue.count < discoveredRFDuinos.count {
-                delegate?.rfDuinoManagerDidDiscoverRFDuino(self, rfDuino: discoveredRFDuinos.last!)
+                delegate?.rfDuinoManagerDidDiscoverRFDuino?(self, rfDuino: discoveredRFDuinos.last!)
             }
         }
     }
@@ -136,7 +136,7 @@ extension RFDuinoBTManager : CBCentralManagerDelegate {
         "Did connect peripheral".log()
         if let rfDuino = discoveredRFDuinos.findRFDuino(peripheral) {
             rfDuino.didConnect()
-            delegate?.rfDuinoManagerDidConnectRFDuino(self, rfDuino: rfDuino)
+            delegate?.rfDuinoManagerDidConnectRFDuino?(self, rfDuino: rfDuino)
         }
     }
     

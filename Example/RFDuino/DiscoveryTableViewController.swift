@@ -111,4 +111,7 @@ extension DiscoveryTableViewController: RFDuinoDelegate {
     func rfDuinoDidDisconnect(rfDuino: RFDuino) {
         
     }
+    func rfDuinoDidReceiveData(rfDuino: RFDuino, data: NSData?) {
+        
+    }
 }

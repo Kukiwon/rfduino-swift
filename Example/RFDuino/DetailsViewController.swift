@@ -34,6 +34,7 @@ class DetailsViewController: UIViewController {
         titleLabel.text = rfDuino?.name
         
         bluetoothLogo.setImageTintColor(UIColor.blackColor())
+        manager.setLoggingEnabled(true)
     }
 }
 
@@ -66,8 +67,8 @@ extension DetailsViewController {
     @IBAction func sendData(sender: UIButton) {
         statusLabel.text = "sending data".uppercaseString
         if rfDuino!.isConnected {
-            rfDuino!.send(String("lock").dataUsingEncoding(NSASCIIStringEncoding)!)
-            rfDuino!.send(String("unlock").dataUsingEncoding(NSASCIIStringEncoding)!)
+            rfDuino!.send(String("opengate").dataUsingEncoding(NSASCIIStringEncoding)!)
+//            rfDuino!.send(String("unlock").dataUsingEncoding(NSASCIIStringEncoding)!)
         }
     }
 }
@@ -132,6 +133,10 @@ extension DetailsViewController: RFDuinoDelegate {
         discoverButton.enabled = true
         statusLabel.text = "idle".uppercaseString
         bluetoothLogo.setImageTintColor(UIColor.blackColor())
+    }
+    
+    func rfDuinoDidReceiveData(rfDuino: RFDuino, data: NSData?) {
+        print("rfDuino did receive data")
     }
 }
 

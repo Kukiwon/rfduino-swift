@@ -16,6 +16,7 @@ import CoreBluetooth
     func rfDuinoDidDiscoverServices(rfDuino: RFDuino)
     func rfDuinoDidDiscoverCharacteristics(rfDuino: RFDuino)
     func rfDuinoDidSendData(rfDuino: RFDuino, forCharacteristic: CBCharacteristic, error: NSError?)
+    optional func rfDuinoDidReceiveData(rfDuino: RFDuino, data: NSData?)
 }
 
 public class RFDuino: NSObject {
@@ -144,7 +145,21 @@ extension RFDuino: CBPeripheralDelegate {
     }
     
     public func peripheral(peripheral: CBPeripheral, didDiscoverCharacteristicsForService service: CBService, error: NSError?) {
+        
+        for characteristic in service.characteristics! {
+            if characteristic.UUID == RFDuinoUUID.Receive.id {
+                peripheral.setNotifyValue(true, forCharacteristic: characteristic)
+            } else if characteristic.UUID == RFDuinoUUID.Send.id {
+                peripheral.setNotifyValue(true, forCharacteristic: characteristic)
+            }
+        }
+        
         "Did discover characteristics for service".log()
         delegate?.rfDuinoDidDiscoverCharacteristics(self)
+    }
+    
+    public func peripheral(peripheral: CBPeripheral, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
+        "Did receive data for rfDuino".log()
+        delegate?.rfDuinoDidReceiveData?(self, data: characteristic.value)
     }
 }

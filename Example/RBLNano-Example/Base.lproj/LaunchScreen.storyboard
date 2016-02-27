@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Red Bear Lab BLE Nano Demo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xuH-xI-xeU">
-                                <rect key="frame" x="123" y="284" width="355" height="33"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Red Bear Lab BLE Nano Demo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xuH-xI-xeU">
+                                <rect key="frame" x="20" y="284" width="560" height="33"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -34,10 +35,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ZHu-Sp-jvH" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="24P-Sx-GPh"/>
+                            <constraint firstItem="xuH-xI-xeU" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="BxS-1B-0JS"/>
                             <constraint firstItem="ZHu-Sp-jvH" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-78" id="PRC-Ss-Hft"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xuH-xI-xeU" secondAttribute="trailing" id="TAy-fF-DnE"/>
                             <constraint firstItem="xuH-xI-xeU" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="e9U-Yb-Y0h"/>
                             <constraint firstItem="xuH-xI-xeU" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="qRP-TO-trN"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="e9U-Yb-Y0h"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>

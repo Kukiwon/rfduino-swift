@@ -1,7 +1,7 @@
 # RFDuino
 A Pod that let's you easily connect to and communicate with RFDuino and other Bluetooth Smart devices.
 
-[![CI Status](http://img.shields.io/travis/Jordy van Kuijk/RFDuino.svg?style=flat)](https://travis-ci.org/Jordy van Kuijk/RFDuino)
+[![CI Status](http://img.shields.io/travis/Kukiwon/rfduino-swift.svg?style=flat)](https://travis-ci.org/Jordy van Kuijk/RFDuino)
 [![Version](https://img.shields.io/cocoapods/v/RFDuino.svg?style=flat)](http://cocoapods.org/pods/RFDuino)
 [![License](https://img.shields.io/cocoapods/l/RFDuino.svg?style=flat)](http://cocoapods.org/pods/RFDuino)
 [![Platform](https://img.shields.io/cocoapods/p/RFDuino.svg?style=flat)](http://cocoapods.org/pods/RFDuino)
@@ -11,6 +11,22 @@ A Pod that let's you easily connect to and communicate with RFDuino and other Bl
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+
+The RFDuino or any other device that you want this library to work with must support Bluetooth Smart (also refered to as Bluetooth Low Energy). For now, the external device needs to be in the "peripheral" role. You'll also need an iPhone 4S or higher to connect to these devices.
+
+## Features
+
+* The plugin comes with a Manager class that allows you to easily:
+  * discover new bluetooth devices
+  * connect to bluetooth devices
+  * find out when a device times out (because it is not visible anymore)
+  * discover services on a bluetooth device
+  * discover characteristics on a bluetooth device
+* It allows you to work with custom UUIDS user in the Bluetooth protocol
+* It comes with an RFDuino class that allows you to easily pass around devices in your code and operate on them:
+  * write data to this device
+  * read data from this device
+  * connect / disconnect from the device
 
 ## Installation
 

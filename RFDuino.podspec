@@ -7,16 +7,16 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = "RFDuino"
-  s.version          = "0.1.1"
-  s.summary          = "The RFDuino library allows you to easily communicate with RFDuino's over Bluetooth."
+  s.name             = "RFDuino-Swift"
+  s.version          = "0.2.0"
+  s.summary          = "The RFDuino library allows you to easily communicate with RFDuino's, but also other devices, over Bluetooth."
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
 #   * Try to keep it short, snappy and to the point.
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!  
-  s.description      = "This library allows you to easily get started with communicating between an iOS device and a Bluetooth 4LE RFDuino. More info will be added soon."
+  s.description      = "This library allows you to easily get started with communicating between an iOS device and Bluetooth Smart devices like RFDuinos. More info will be added soon."
 
 
   s.homepage         = "https://github.com/Kukiwon/rfduino-swift"

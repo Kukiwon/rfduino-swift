@@ -13,6 +13,14 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		7C649C9CEF43D1297534BCDE /* Pods_RFDuino_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29C5E0C6161B892EF3A4AD70 /* Pods_RFDuino_Tests.framework */; };
+		7F55B9A446FCB2F2673B0158 /* Pods_RBLNano_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD77EACAC55EC3C236B441D3 /* Pods_RBLNano_Example.framework */; };
+		E5BF896F1C78D5F9004DBABF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5BF896D1C78D5F9004DBABF /* LaunchScreen.storyboard */; };
+		E5BF89741C78D67D004DBABF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
+		E5BF89751C78D686004DBABF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
+		E5BF89791C78D6E1004DBABF /* Pods_RFDuino_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5BF89781C78D6E1004DBABF /* Pods_RFDuino_Example.framework */; };
+		E5BF897A1C78D7C1004DBABF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
+		E5BF89811C78D8F7004DBABF /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BF897D1C78D8EA004DBABF /* DetailsViewController.swift */; };
+		E5BF89821C78D8F7004DBABF /* DiscoveryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BF897E1C78D8EA004DBABF /* DiscoveryTableViewController.swift */; };
 		E5E52A721C58D2CF00D2691B /* DiscoveryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E52A711C58D2CF00D2691B /* DiscoveryTableViewController.swift */; };
 		E5E52A761C590B7500D2691B /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E52A751C590B7500D2691B /* DetailsViewController.swift */; };
 		E6FF88E4FD755D457A8B04C0 /* Pods_RFDuino_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF7C6AEF16870AAB5FB61DF0 /* Pods_RFDuino_Example.framework */; };
@@ -32,19 +40,28 @@
 		1A066FA1432BA2BA092FEB3E /* Pods-RFDuino_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RFDuino_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RFDuino_Example/Pods-RFDuino_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		29C5E0C6161B892EF3A4AD70 /* Pods_RFDuino_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RFDuino_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44C89FBE8774FCE6E78D8F60 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		476B61ADECC9834327DC236A /* Pods-RBLNano-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RBLNano-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-RBLNano-Example/Pods-RBLNano-Example.release.xcconfig"; sourceTree = "<group>"; };
 		5C518C70CC2812FB0A3B213F /* RFDuino.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RFDuino.podspec; path = ../RFDuino.podspec; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* RFDuino_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RFDuino_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = RFDuino/AppDelegate.swift; sourceTree = "<group>"; };
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = RFDuino/Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* RFDuino_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RFDuino_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		94258A1AC7231AA53B94EC25 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		AD77EACAC55EC3C236B441D3 /* Pods_RBLNano_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RBLNano_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B44FAA30EEB267354A75F92A /* Pods-RFDuino_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RFDuino_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RFDuino_Tests/Pods-RFDuino_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		CAE5079C6EF7BECE65C754CE /* Pods-RFDuino_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RFDuino_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RFDuino_Tests/Pods-RFDuino_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		CD65101DE2F14384ED8A567B /* Pods-RBLNano-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RBLNano-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RBLNano-Example/Pods-RBLNano-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		E5BF89621C78D5F9004DBABF /* RBLNano-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RBLNano-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5BF896E1C78D5F9004DBABF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E5BF89701C78D5F9004DBABF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5BF89781C78D6E1004DBABF /* Pods_RFDuino_Example.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_RFDuino_Example.framework; path = "Pods/../build/Debug-iphoneos/Pods_RFDuino_Example.framework"; sourceTree = "<group>"; };
+		E5BF897D1C78D8EA004DBABF /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		E5BF897E1C78D8EA004DBABF /* DiscoveryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryTableViewController.swift; sourceTree = "<group>"; };
 		E5E52A711C58D2CF00D2691B /* DiscoveryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryTableViewController.swift; sourceTree = "<group>"; };
 		E5E52A751C590B7500D2691B /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		EF7C6AEF16870AAB5FB61DF0 /* Pods_RFDuino_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RFDuino_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,14 +85,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E5BF895F1C78D5F9004DBABF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5BF89791C78D6E1004DBABF /* Pods_RFDuino_Example.framework in Frameworks */,
+				7F55B9A446FCB2F2673B0158 /* Pods_RBLNano_Example.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		4898AA57209218320D651CFB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E5BF89781C78D6E1004DBABF /* Pods_RFDuino_Example.framework */,
 				EF7C6AEF16870AAB5FB61DF0 /* Pods_RFDuino_Example.framework */,
 				29C5E0C6161B892EF3A4AD70 /* Pods_RFDuino_Tests.framework */,
+				AD77EACAC55EC3C236B441D3 /* Pods_RBLNano_Example.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -84,6 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
+				E5BF897C1C78D83F004DBABF /* Example Shared Resources */,
+				E5BF89631C78D5F9004DBABF /* Example for RBLNano */,
 				607FACD21AFB9204008FA782 /* Example for RFDuino */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
@@ -97,6 +127,7 @@
 			children = (
 				607FACD01AFB9204008FA782 /* RFDuino_Example.app */,
 				607FACE51AFB9204008FA782 /* RFDuino_Tests.xctest */,
+				E5BF89621C78D5F9004DBABF /* RBLNano-Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,11 +135,8 @@
 		607FACD21AFB9204008FA782 /* Example for RFDuino */ = {
 			isa = PBXGroup;
 			children = (
-				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				E5E52A711C58D2CF00D2691B /* DiscoveryTableViewController.swift */,
 				E5E52A751C590B7500D2691B /* DetailsViewController.swift */,
-				607FACD91AFB9204008FA782 /* Main.storyboard */,
-				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
@@ -158,8 +186,32 @@
 				F4FC882241EE5C48741225CE /* Pods-RFDuino_Example.release.xcconfig */,
 				CAE5079C6EF7BECE65C754CE /* Pods-RFDuino_Tests.debug.xcconfig */,
 				B44FAA30EEB267354A75F92A /* Pods-RFDuino_Tests.release.xcconfig */,
+				CD65101DE2F14384ED8A567B /* Pods-RBLNano-Example.debug.xcconfig */,
+				476B61ADECC9834327DC236A /* Pods-RBLNano-Example.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		E5BF89631C78D5F9004DBABF /* Example for RBLNano */ = {
+			isa = PBXGroup;
+			children = (
+				E5BF897E1C78D8EA004DBABF /* DiscoveryTableViewController.swift */,
+				E5BF897D1C78D8EA004DBABF /* DetailsViewController.swift */,
+				E5BF896D1C78D5F9004DBABF /* LaunchScreen.storyboard */,
+				E5BF89701C78D5F9004DBABF /* Info.plist */,
+			);
+			name = "Example for RBLNano";
+			path = "RBLNano-Example";
+			sourceTree = "<group>";
+		};
+		E5BF897C1C78D83F004DBABF /* Example Shared Resources */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				607FACDC1AFB9204008FA782 /* Images.xcassets */,
+			);
+			name = "Example Shared Resources";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +258,26 @@
 			productReference = 607FACE51AFB9204008FA782 /* RFDuino_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		E5BF89611C78D5F9004DBABF /* RBLNano-Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5BF89731C78D5F9004DBABF /* Build configuration list for PBXNativeTarget "RBLNano-Example" */;
+			buildPhases = (
+				1114D731AEC81AB10611BD0D /* Check Pods Manifest.lock */,
+				E5BF895E1C78D5F9004DBABF /* Sources */,
+				E5BF895F1C78D5F9004DBABF /* Frameworks */,
+				E5BF89601C78D5F9004DBABF /* Resources */,
+				D7686E637CBEFE97E8282312 /* Embed Pods Frameworks */,
+				667343C09963304F19C11563 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RBLNano-Example";
+			productName = "RBLNano-Example";
+			productReference = E5BF89621C78D5F9004DBABF /* RBLNano-Example.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -222,6 +294,9 @@
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						TestTargetID = 607FACCF1AFB9204008FA782;
+					};
+					E5BF89611C78D5F9004DBABF = {
+						CreatedOnToolsVersion = 7.2.1;
 					};
 				};
 			};
@@ -240,6 +315,7 @@
 			targets = (
 				607FACCF1AFB9204008FA782 /* RFDuino_Example */,
 				607FACE41AFB9204008FA782 /* RFDuino_Tests */,
+				E5BF89611C78D5F9004DBABF /* RBLNano-Example */,
 			);
 		};
 /* End PBXProject section */
@@ -262,6 +338,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E5BF89601C78D5F9004DBABF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5BF89741C78D67D004DBABF /* Main.storyboard in Resources */,
+				E5BF897A1C78D7C1004DBABF /* Images.xcassets in Resources */,
+				E5BF896F1C78D5F9004DBABF /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -280,6 +366,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RFDuino_Tests/Pods-RFDuino_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		1114D731AEC81AB10611BD0D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		378629FCA9F4BF5E2ED637E9 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -293,6 +394,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		667343C09963304F19C11563 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RBLNano-Example/Pods-RBLNano-Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7B4D356E139697E5C638C399 /* Check Pods Manifest.lock */ = {
@@ -340,6 +456,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RFDuino_Example/Pods-RFDuino_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D7686E637CBEFE97E8282312 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RBLNano-Example/Pods-RBLNano-Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F0EF546054F6EA66EB03D6AA /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -376,6 +507,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E5BF895E1C78D5F9004DBABF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5BF89821C78D8F7004DBABF /* DiscoveryTableViewController.swift in Sources */,
+				E5BF89751C78D686004DBABF /* AppDelegate.swift in Sources */,
+				E5BF89811C78D8F7004DBABF /* DetailsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -393,6 +534,7 @@
 				607FACDA1AFB9204008FA782 /* Base */,
 			);
 			name = Main.storyboard;
+			path = RFDuino;
 			sourceTree = "<group>";
 		};
 		607FACDE1AFB9204008FA782 /* LaunchScreen.xib */ = {
@@ -401,6 +543,14 @@
 				607FACDF1AFB9204008FA782 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		E5BF896D1C78D5F9004DBABF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E5BF896E1C78D5F9004DBABF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -554,6 +704,43 @@
 			};
 			name = Release;
 		};
+		E5BF89711C78D5F9004DBABF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD65101DE2F14384ED8A567B /* Pods-RBLNano-Example.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				INFOPLIST_FILE = "RBLNano-Example/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.npsoftware.RBLNano-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E5BF89721C78D5F9004DBABF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 476B61ADECC9834327DC236A /* Pods-RBLNano-Example.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				INFOPLIST_FILE = "RBLNano-Example/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.npsoftware.RBLNano-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -580,6 +767,15 @@
 			buildConfigurations = (
 				607FACF31AFB9204008FA782 /* Debug */,
 				607FACF41AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5BF89731C78D5F9004DBABF /* Build configuration list for PBXNativeTarget "RBLNano-Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5BF89711C78D5F9004DBABF /* Debug */,
+				E5BF89721C78D5F9004DBABF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -21,6 +21,13 @@ class DiscoveryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // The Nordic UART UUIDs
+        RFDuinoUUIDS.discoverUUID = "713D0000-503E-4C75-BA94-3148F18D941E"
+        RFDuinoUUIDS.receiveUUID = "713D0002-503E-4C75-BA94-3148F18D941E"
+        RFDuinoUUIDS.sendUUID = "713D0003-503E-4C75-BA94-3148F18D941E"
+        
+        navigationItem.title = "RBL Nano devices"
+        
         manager.startScanningForRFDuinos()
         manager.setLoggingEnabled(true)
         tableView.rowHeight = 56

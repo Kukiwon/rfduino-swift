@@ -14,30 +14,32 @@ import CoreBluetooth
     optional func rfDuinoManagerDidConnectRFDuino(manager: RFDuinoBTManager, rfDuino: RFDuino)
 }
 
-internal enum RFDuinoUUID {
-    case Discover
-    case Disconnect
-    case Receive
-    case Send
+public struct RFDuinoUUIDS {
+    public static var discoverUUID: String?
+    public static var disconnectUUID: String?
+    public static var receiveUUID: String?
+    public static var sendUUID: String?
+}
+
+internal enum RFDuinoUUID: String {
+    case Discover = "2220"
+    case Disconnect = "2221"
+    case Receive = "2222"
+    case Send = "2223"
     
     var id: CBUUID {
         get {
             switch self {
-            case .Discover:
-                return CBUUID(string: "2220")
-            case .Receive:
-                return CBUUID(string: "2221")
-            case .Send:
-                return CBUUID(string: "2222")
-            case .Disconnect:
-                return CBUUID(string: "2223")
+                case .Discover: return CBUUID(string: RFDuinoUUIDS.discoverUUID ?? self.rawValue)
+                case .Disconnect: return CBUUID(string: RFDuinoUUIDS.disconnectUUID ?? self.rawValue)
+                case .Receive: return CBUUID(string: RFDuinoUUIDS.receiveUUID ?? self.rawValue)
+                case .Send: return CBUUID(string: RFDuinoUUIDS.sendUUID ?? self.rawValue)
             }
         }
     }
 }
 
 public class RFDuinoBTManager : NSObject {
-    
     /* Public variables */
     public static let sharedInstance = RFDuinoBTManager()
     public var delegate: RFDuinoBTManagerDelegate?
@@ -96,6 +98,10 @@ public extension RFDuinoBTManager {
                 self.centralManager.cancelPeripheralConnection(rfDuino.peripheral)
             })
         }
+    }
+    
+    func disconnectRFDuinoWithoutSendCommand(rfDuino: RFDuino) {
+        self.centralManager.cancelPeripheralConnection(rfDuino.peripheral)
     }
 }
 

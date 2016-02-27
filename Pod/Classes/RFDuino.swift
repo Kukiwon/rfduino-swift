@@ -90,7 +90,7 @@ public extension RFDuino {
     
     func sendDisconnectCommand(whenDone: () -> ()) {
         self.whenDoneBlock = whenDone
-        // if no services were discoverd, imediately invoke done block
+        // if no services were discovered, imediately invoke done block
         if peripheral.services == nil {
             whenDone()
             return
@@ -147,6 +147,7 @@ extension RFDuino: CBPeripheralDelegate {
     public func peripheral(peripheral: CBPeripheral, didDiscoverCharacteristicsForService service: CBService, error: NSError?) {
         
         for characteristic in service.characteristics! {
+            ("did discover characteristic with UUID: " + characteristic.UUID.description).log()
             if characteristic.UUID == RFDuinoUUID.Receive.id {
                 peripheral.setNotifyValue(true, forCharacteristic: characteristic)
             } else if characteristic.UUID == RFDuinoUUID.Send.id {

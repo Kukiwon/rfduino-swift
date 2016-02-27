@@ -5,6 +5,10 @@ target 'RFDuino_Example', :exclusive => true do
   pod 'RFDuino', :path => '../'
 end
 
+target 'RBLNano-Example', :exclusive => true do
+    pod 'RFDuino', :path => '../'
+end
+
 target 'RFDuino_Tests', :exclusive => true do
   pod 'RFDuino', :path => '../'
   

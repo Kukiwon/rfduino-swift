@@ -35,6 +35,8 @@ class DetailsViewController: UIViewController {
         
         bluetoothLogo.setImageTintColor(UIColor.blackColor())
         manager.setLoggingEnabled(true)
+        
+        navigationItem.title = "RBL Nano devive"
     }
 }
 
@@ -48,7 +50,7 @@ extension DetailsViewController {
     @IBAction func disconnect(sender: AnyObject) {
         statusLabel.text = "disconnecting".uppercaseString
         if rfDuino!.isConnected {
-            manager.disconnectRFDuino(rfDuino!)
+            manager.disconnectRFDuinoWithoutSendCommand(rfDuino!)
         } else {
             statusLabel.text = (rfDuino?.name ?? "rfDuino") + " not connected..."
             statusLabel.delay(1.0, closure: { () -> () in

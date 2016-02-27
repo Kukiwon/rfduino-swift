@@ -27,6 +27,11 @@ The RFDuino or any other device that you want this library to work with must sup
   * write data to this device
   * read data from this device
   * connect / disconnect from the device
+* The pod comes with two demo applications: RFDuino Example and RBL Nano Example, see [Red Bear Lab Nano](http://redbearlab.com/blenano/) that allows you to:
+  * connect to a device
+  * disconnect from a connected device
+  * discover services and characteristics on a device, once it is connected
+  * send (write) data to the connected device
 
 ## Installation
 

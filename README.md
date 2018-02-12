@@ -1,7 +1,6 @@
 # RFDuino
 A Pod that let's you easily connect to and communicate with RFDuino and other Bluetooth Smart devices.
 
-[![CI Status](http://img.shields.io/travis/Kukiwon/rfduino-swift.svg?style=flat)](https://travis-ci.org/Jordy van Kuijk/RFDuino)
 [![Version](https://img.shields.io/cocoapods/v/RFDuino.svg?style=flat)](http://cocoapods.org/pods/RFDuino)
 [![License](https://img.shields.io/cocoapods/l/RFDuino.svg?style=flat)](http://cocoapods.org/pods/RFDuino)
 [![Platform](https://img.shields.io/cocoapods/p/RFDuino.svg?style=flat)](http://cocoapods.org/pods/RFDuino)

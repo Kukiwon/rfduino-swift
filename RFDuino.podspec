@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "RFDuino"
-  s.version          = "0.2.1"
+  s.version          = "0.3.0"
   s.summary          = "The RFDuino library allows you to easily communicate with RFDuino's, but also other devices, over Bluetooth."
 
   s.description      = "This library allows you to easily get started with communicating between an iOS device and Bluetooth Smart devices like RFDuinos. More info will be added soon."

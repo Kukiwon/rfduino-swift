@@ -44,7 +44,7 @@ pod "RFDuino"
 
 ## Author
 
-Jordy van Kuijk, jordy@kineticvision.nl
+Jordy van Kuijk, info@noproblem.software
 
 ## License
 

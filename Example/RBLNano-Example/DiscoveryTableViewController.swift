@@ -29,54 +29,53 @@ class DiscoveryTableViewController: UITableViewController {
         navigationItem.title = "RBL Nano devices"
         
         manager.startScanningForRFDuinos()
-        manager.setLoggingEnabled(true)
+        manager.setLoggingEnabled(enabled: true)
         tableView.rowHeight = 56
         tableView.tableFooterView = UIView()
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if let selectedIP = tableView.indexPathForSelectedRow {
-            tableView.deselectRowAtIndexPath(selectedIP, animated: true)
+            tableView.deselectRow(at: selectedIP, animated: true)
         }
     }
         
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return max(manager.discoveredRFDuinos.count, 1)
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if manager.discoveredRFDuinos.count == 0 {
-            return tableView.dequeueReusableCellWithIdentifier("noResultsCell")!
+            return tableView.dequeueReusableCell(withIdentifier: "noResultsCell")!
         }
         
         let identifier = "rfDuinoCell"
         let rfDuino = manager.discoveredRFDuinos[indexPath.row]
-        let cell = tableView.dequeueReusableCellWithIdentifier(identifier)
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
         
         if rfDuino.isTimedOut {
-            cell?.textLabel?.textColor = UIColor.grayColor()
+            cell?.textLabel?.textColor = UIColor.gray
             cell?.textLabel?.text = rfDuino.name + " (timed out)"
         } else {
-            cell?.textLabel?.textColor = UIColor.blackColor()
+            cell?.textLabel?.textColor = UIColor.black
             cell?.textLabel?.text = rfDuino.name + (rfDuino.RSSI != nil ? " \(rfDuino.RSSI!)" : "")
         }
         
         return cell!
     }
     
-    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         let rfDuino = manager.discoveredRFDuinos[tableView.indexPathForSelectedRow!.row]
         if rfDuino.isTimedOut {
-            tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow!, animated: true)
+            tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
         }
         return !rfDuino.isTimedOut
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let rfDuino = manager.discoveredRFDuinos[tableView.indexPathForSelectedRow!.row]
-        let d = segue.destinationViewController as? DetailsViewController
+        let d = segue.destination as? DetailsViewController
         d?.rfDuino = rfDuino
     }
 }

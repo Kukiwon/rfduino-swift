@@ -11,20 +11,13 @@ Pod::Spec.new do |s|
   s.version          = "0.2.1"
   s.summary          = "The RFDuino library allows you to easily communicate with RFDuino's, but also other devices, over Bluetooth."
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!  
   s.description      = "This library allows you to easily get started with communicating between an iOS device and Bluetooth Smart devices like RFDuinos. More info will be added soon."
 
 
   s.homepage         = "https://github.com/Kukiwon/rfduino-swift"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Jordy van Kuijk" => "jordy@kineticvision.nl" }
   s.source           = { :git => "https://github.com/Kukiwon/rfduino-swift.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.platform     = :ios, '8.0'
   s.requires_arc = true
@@ -33,8 +26,4 @@ Pod::Spec.new do |s|
   s.resource_bundles = {
     'RFDuino' => ['Pod/Assets/*.png']
   }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end

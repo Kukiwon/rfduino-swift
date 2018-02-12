@@ -33,41 +33,41 @@ class DetailsViewController: UIViewController {
         manager.delegate = self
         titleLabel.text = rfDuino?.name
         
-        bluetoothLogo.setImageTintColor(UIColor.blackColor())
-        manager.setLoggingEnabled(true)
+        bluetoothLogo.setImageTintColor(color: UIColor.black)
+        manager.setLoggingEnabled(enabled: true)
     }
 }
 
 extension DetailsViewController {
     
     @IBAction func connect(sender: UIButton) {
-        statusLabel.text = "connecting".uppercaseString
-        manager.connectRFDuino(rfDuino!)
+        statusLabel.text = "connecting".uppercased()
+        manager.connectRFDuino(rfDuino: rfDuino!)
     }
     
     @IBAction func disconnect(sender: AnyObject) {
-        statusLabel.text = "disconnecting".uppercaseString
+        statusLabel.text = "disconnecting".uppercased()
         if rfDuino!.isConnected {
-            manager.disconnectRFDuino(rfDuino!)
+            manager.disconnectRFDuino(rfDuino: rfDuino!)
         } else {
             statusLabel.text = (rfDuino?.name ?? "rfDuino") + " not connected..."
-            statusLabel.delay(1.0, closure: { () -> () in
-                self.statusLabel.text = "idle".uppercaseString
+            statusLabel.delay(time: 1.0, closure: { () -> () in
+                self.statusLabel.text = "idle".uppercased()
             })
         }
     }
     
     @IBAction func discoverServices(sender: AnyObject) {
-        statusLabel.text = "discovering services".uppercaseString
+        statusLabel.text = "discovering services".uppercased()
         if rfDuino!.isConnected {
             rfDuino!.discoverServices()
         }
     }
     
     @IBAction func sendData(sender: UIButton) {
-        statusLabel.text = "sending data".uppercaseString
+        statusLabel.text = "sending data".uppercased()
         if rfDuino!.isConnected {
-            rfDuino!.send(String("hello").dataUsingEncoding(NSASCIIStringEncoding)!)
+            rfDuino!.send(data: String("hello").data(using: String.Encoding.ascii)!)
         }
     }
 }
@@ -78,82 +78,78 @@ extension DetailsViewController: RFDuinoBTManagerDelegate {
     }
     
     func rfDuinoManagerDidConnectRFDuino(manager: RFDuinoBTManager, rfDuino: RFDuino) {
-        statusLabel.text = "idle".uppercaseString
-        bluetoothLogo.setImageTintColor(UIColor.greenColor())
-        connectButton.enabled = false
-        disconnectButton.enabled = true
+        statusLabel.text = "idle".uppercased()
+        bluetoothLogo.setImageTintColor(color: UIColor.green)
+        connectButton.isEnabled = false
+        disconnectButton.isEnabled = true
     }
 }
 
 extension DetailsViewController: RFDuinoDelegate {
     
     func rfDuinoDidDiscoverCharacteristics(rfDuino: RFDuino) {
-        bluetoothLogo.setImageTintColor(bluetoothColor)
-        statusLabel.text = "idle".uppercaseString
-        discoverButton.enabled = false
+        bluetoothLogo.setImageTintColor(color: bluetoothColor)
+        statusLabel.text = "idle".uppercased()
+        discoverButton.isEnabled = false
     }
     
     func rfDuinoDidDiscoverServices(rfDuino: RFDuino) {
-        bluetoothLogo.setImageTintColor(UIColor.blueColor())
-        statusLabel.text = "idle".uppercaseString
+        bluetoothLogo.setImageTintColor(color: UIColor.blue)
+        statusLabel.text = "idle".uppercased()
     }
     
-    func rfDuinoDidSendData(rfDuino: RFDuino, forCharacteristic: CBCharacteristic, error: NSError?) {
+    func rfDuinoDidSendData(rfDuino: RFDuino, forCharacteristic: CBCharacteristic, error: Error?) {
         if isAnimating {
             return
         }
         isAnimating = true
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
-            self.bluetoothLogo.layer.backgroundColor = UIColor.whiteColor().CGColor
+        DispatchQueue.main.async {
+            self.bluetoothLogo.layer.backgroundColor = UIColor.white.cgColor
             self.bluetoothLogo.layer.cornerRadius = self.bluetoothLogo.frame.size.width / 2
-            UIView.animateWithDuration(0.3, animations: { () -> Void in
-                self.bluetoothLogo.layer.backgroundColor = self.bluetoothColor.colorWithAlphaComponent(0.2).CGColor
-                }) { (bool) -> Void in
+            UIView.animate(withDuration: 0.3, animations: { () -> Void in
+                self.bluetoothLogo.layer.backgroundColor = self.bluetoothColor.withAlphaComponent(0.2).cgColor
+            }) { (bool) -> Void in
                 self.isAnimating = false
-                self.bluetoothLogo.layer.backgroundColor = UIColor.whiteColor().CGColor
-                self.statusLabel.text = "idle".uppercaseString
+                self.bluetoothLogo.layer.backgroundColor = UIColor.white.cgColor
+                self.statusLabel.text = "idle".uppercased()
             }
         }
     }
     
     func rfDuinoDidTimeout(rfDuino: RFDuino) {
-        bluetoothLogo.setImageTintColor(UIColor.redColor())
-        statusLabel.text = "idle".uppercaseString
+        bluetoothLogo.setImageTintColor(color: UIColor.red)
+        statusLabel.text = "idle".uppercased()
     }
     
     func rfDuinoDidDiscover(rfDuino: RFDuino) {
-        bluetoothLogo.setImageTintColor(UIColor.blackColor())
-        statusLabel.text = "idle".uppercaseString
+        bluetoothLogo.setImageTintColor(color: UIColor.black)
+        statusLabel.text = "idle".uppercased()
     }
     
     func rfDuinoDidDisconnect(rfDuino: RFDuino) {
-        connectButton.enabled = true
-        disconnectButton.enabled = false
-        discoverButton.enabled = true
-        statusLabel.text = "idle".uppercaseString
-        bluetoothLogo.setImageTintColor(UIColor.blackColor())
+        connectButton.isEnabled = true
+        disconnectButton.isEnabled = false
+        discoverButton.isEnabled = true
+        statusLabel.text = "idle".uppercased()
+        bluetoothLogo.setImageTintColor(color: UIColor.black)
     }
     
-    func rfDuinoDidReceiveData(rfDuino: RFDuino, data: NSData?) {
+    func rfDuinoDidReceiveData(rfDuino: RFDuino, data: Data?) {
         print("rfDuino did receive data")
     }
 }
 
 extension UIImageView {
     func setImageTintColor(color: UIColor) {
-        let image = self.image?.imageWithRenderingMode(.AlwaysTemplate)
+        let image = self.image?.withRenderingMode(.alwaysTemplate)
         self.image = image
         self.tintColor = color
     }
 }
 
 extension UILabel {
-    func delay(time: Double, closure:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(time * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), closure)
+    func delay(time: Double, closure: @escaping ()->()) {
+        let dt = DispatchTime(uptimeNanoseconds: UInt64(time))
+        DispatchQueue.main.asyncAfter(deadline: dt, execute: closure)
     }
 }

@@ -14,6 +14,7 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var responseLabel: UILabel!
     @IBOutlet weak var bluetoothLogo: UIImageView!
     
     @IBOutlet weak var connectButton: UIButton!
@@ -35,6 +36,10 @@ class DetailsViewController: UIViewController {
         
         bluetoothLogo.setImageTintColor(color: UIColor.black)
         manager.setLoggingEnabled(enabled: true)
+        
+        disconnectButton.isEnabled = false
+        discoverButton.isEnabled = false
+        sendDataButton.isEnabled = false
         
         navigationItem.title = "RBL Nano devive"
     }
@@ -84,6 +89,7 @@ extension DetailsViewController: RFDuinoBTManagerDelegate {
         bluetoothLogo.setImageTintColor(color: UIColor.green)
         connectButton.isEnabled = false
         disconnectButton.isEnabled = true
+        discoverButton.isEnabled = true
     }
 }
 
@@ -98,6 +104,7 @@ extension DetailsViewController: RFDuinoDelegate {
     func rfDuinoDidDiscoverServices(rfDuino: RFDuino) {
         bluetoothLogo.setImageTintColor(color: UIColor.blue)
         statusLabel.text = "idle".uppercased()
+        sendDataButton.isEnabled = true
     }
     
     func rfDuinoDidSendData(rfDuino: RFDuino, forCharacteristic: CBCharacteristic, error: Error?) {
@@ -131,13 +138,21 @@ extension DetailsViewController: RFDuinoDelegate {
     func rfDuinoDidDisconnect(rfDuino: RFDuino) {
         connectButton.isEnabled = true
         disconnectButton.isEnabled = false
-        discoverButton.isEnabled = true
+        discoverButton.isEnabled = false
+        sendDataButton.isEnabled = false
         statusLabel.text = "idle".uppercased()
         bluetoothLogo.setImageTintColor(color: UIColor.black)
     }
     
     func rfDuinoDidReceiveData(rfDuino: RFDuino, data: Data?) {
-        print("rfDuino did receive data")
+        guard let data = data else { return }
+        if let string = String.init(data: data, encoding: String.Encoding.utf8) {
+            print("rfDuino did receive data \(string)");
+            responseLabel.text = "Last response: \(string)"
+            responseLabel.isHidden = false
+        } else {
+            print("rfDuino did receive data");
+        }
     }
 }
 

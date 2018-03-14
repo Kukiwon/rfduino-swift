@@ -14,6 +14,7 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var responseLabel: UILabel!
     @IBOutlet weak var bluetoothLogo: UIImageView!
     
     @IBOutlet weak var connectButton: UIButton!
@@ -135,7 +136,14 @@ extension DetailsViewController: RFDuinoDelegate {
     }
     
     func rfDuinoDidReceiveData(rfDuino: RFDuino, data: Data?) {
-        print("rfDuino did receive data")
+        guard let data = data else { return }
+        if let string = String.init(data: data, encoding: String.Encoding.utf8) {
+            print("rfDuino did receive data %@", string);
+            responseLabel.text = "Last response: \(string)"
+            responseLabel.isHidden = false
+        } else {
+            print("rfDuino did receive data");
+        }
     }
 }
 

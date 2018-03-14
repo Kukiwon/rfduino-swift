@@ -179,6 +179,12 @@
                                     <constraint firstAttribute="height" constant="30" id="mL9-7Z-7WV"/>
                                 </constraints>
                             </imageView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Response" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oip-XC-HPE">
+                                <rect key="frame" x="0.0" y="476" width="375" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -196,11 +202,13 @@
                             <constraint firstAttribute="trailingMargin" secondItem="HuA-Wm-GzU" secondAttribute="trailing" constant="-20" id="R1X-4U-Vb5"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Y2m-qd-KQw" secondAttribute="leading" id="Su1-cN-QeL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="opv-sl-j4i" secondAttribute="trailing" id="V5j-ZO-jWq"/>
+                            <constraint firstItem="oip-XC-HPE" firstAttribute="top" secondItem="POw-Gy-mpI" secondAttribute="bottom" constant="8" id="Xsd-yk-gRh"/>
                             <constraint firstAttribute="leadingMargin" secondItem="9jV-bM-OsL" secondAttribute="leading" id="XxG-d2-w79"/>
                             <constraint firstItem="mkV-Sg-A1H" firstAttribute="top" secondItem="Zmr-Mz-YuA" secondAttribute="bottom" constant="16" id="Y0d-8G-JGc"/>
                             <constraint firstAttribute="leadingMargin" secondItem="POw-Gy-mpI" secondAttribute="leading" id="YPH-0X-Ac4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="POw-Gy-mpI" secondAttribute="trailing" id="Z8n-WH-qf9"/>
                             <constraint firstItem="mkV-Sg-A1H" firstAttribute="top" secondItem="03c-Sr-mMv" secondAttribute="bottom" constant="8" id="aGs-B2-WTa"/>
+                            <constraint firstItem="oip-XC-HPE" firstAttribute="leading" secondItem="ysV-Mr-Xjf" secondAttribute="leading" id="bdm-qv-FIw"/>
                             <constraint firstItem="POw-Gy-mpI" firstAttribute="top" secondItem="HuA-Wm-GzU" secondAttribute="bottom" constant="8" id="dfa-gA-5Cd"/>
                             <constraint firstItem="xf1-6P-1O2" firstAttribute="leading" secondItem="ysV-Mr-Xjf" secondAttribute="leadingMargin" constant="-20" id="gJ0-ke-FrZ"/>
                             <constraint firstAttribute="leadingMargin" secondItem="oOK-cr-9GK" secondAttribute="leading" id="gx1-oE-Vuu"/>
@@ -213,6 +221,7 @@
                             <constraint firstItem="HuA-Wm-GzU" firstAttribute="leading" secondItem="ysV-Mr-Xjf" secondAttribute="leadingMargin" constant="-20" id="tk0-mZ-gmM"/>
                             <constraint firstItem="oOK-cr-9GK" firstAttribute="top" secondItem="mkV-Sg-A1H" secondAttribute="bottom" constant="21" id="uAl-Ov-h13"/>
                             <constraint firstItem="oOK-cr-9GK" firstAttribute="top" secondItem="xf1-6P-1O2" secondAttribute="bottom" constant="18" id="uPE-W8-gyg"/>
+                            <constraint firstAttribute="trailing" secondItem="oip-XC-HPE" secondAttribute="trailing" id="xVT-5c-ava"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xf1-6P-1O2" secondAttribute="trailing" constant="-20" id="yTX-BB-MMA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZUx-QE-M9C" secondAttribute="trailing" constant="-20" id="yzX-Tv-bxu"/>
                         </constraints>
@@ -231,6 +240,7 @@
                         <outlet property="connectButton" destination="oOK-cr-9GK" id="8Kp-xJ-EQh"/>
                         <outlet property="disconnectButton" destination="opv-sl-j4i" id="K1y-Fa-8Qo"/>
                         <outlet property="discoverButton" destination="Y2m-qd-KQw" id="NgJ-MG-E18"/>
+                        <outlet property="responseLabel" destination="oip-XC-HPE" id="6WB-xf-RWl"/>
                         <outlet property="sendDataButton" destination="9jV-bM-OsL" id="hov-cY-T6P"/>
                         <outlet property="statusLabel" destination="POw-Gy-mpI" id="xwm-vP-Fdl"/>
                         <outlet property="titleLabel" destination="mkV-Sg-A1H" id="2vr-RQ-Mg3"/>
@@ -238,7 +248,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mmt-gG-1Za" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1502" y="504"/>
+            <point key="canvasLocation" x="1501.5999999999999" y="503.29835082458777"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pJn-XH-i9x">
